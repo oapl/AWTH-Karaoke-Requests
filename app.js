@@ -9,7 +9,7 @@ const sampleQueue = [
   },
   {
     song: "Chappell Roan - Pink Pony Club",
-    status: "Ready",
+    status: "Complete",
     updated: "2026-06-08",
     notes: "Demo entry."
   },
@@ -21,7 +21,7 @@ const sampleQueue = [
   },
   {
     song: "Mitski - My Love Mine All Mine",
-    status: "Done",
+    status: "Complete",
     updated: "2026-06-05",
     notes: "Demo entry."
   }
@@ -142,7 +142,7 @@ function renderQueue() {
 
 function renderSummary() {
   const total = state.queue.length;
-  const ready = state.queue.filter((item) => statusKey(item.status) === "ready").length;
+  const complete = state.queue.filter((item) => statusKey(item.status) === "complete").length;
   const making = state.queue.filter((item) => statusKey(item.status) === "making").length;
   const received = state.queue.filter((item) => statusKey(item.status) === "received").length;
 
@@ -150,7 +150,7 @@ function renderSummary() {
     summaryPill(`${total} total`),
     summaryPill(`${received} received`),
     summaryPill(`${making} making`),
-    summaryPill(`${ready} ready`)
+    summaryPill(`${complete} complete`)
   );
 }
 
@@ -192,17 +192,11 @@ function normalizeKey(key) {
 
 function statusKey(status) {
   const value = String(status || "").toLowerCase();
-  if (value.includes("ready")) {
-    return "ready";
-  }
   if (value.includes("progress") || value.includes("making") || value.includes("build")) {
     return "making";
   }
   if (value.includes("done") || value.includes("complete") || value.includes("sang")) {
-    return "done";
-  }
-  if (value.includes("block") || value.includes("source")) {
-    return "blocked";
+    return "complete";
   }
   return "received";
 }

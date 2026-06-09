@@ -75,24 +75,33 @@ select {
   margin-top: 3px;
 }
 
-.nav-links {
+.social-links {
   align-items: center;
   display: flex;
   gap: 10px;
 }
 
-.nav-links a {
+.social-links a {
+  align-items: center;
   border: 1px solid rgba(255, 248, 234, 0.25);
   border-radius: 8px;
   color: #fff3d8;
-  font-size: 14px;
-  padding: 8px 12px;
+  display: inline-flex;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
 }
 
-.nav-links a:hover,
-.nav-links a:focus-visible {
+.social-links a:hover,
+.social-links a:focus-visible {
   border-color: #edc271;
   outline: none;
+}
+
+.social-links svg {
+  fill: currentColor;
+  height: 19px;
+  width: 19px;
 }
 
 .hero {
@@ -166,23 +175,35 @@ h2 {
   max-width: 590px;
 }
 
-.mini-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 30px;
+.lede-secondary {
+  color: #f0d8a8;
+  font-size: 16px;
+  max-width: 640px;
 }
 
-.mini-stats span {
-  background: rgba(255, 248, 234, 0.12);
-  border: 1px solid rgba(255, 248, 234, 0.26);
+.donation-button {
+  align-items: center;
+  background: #edc271;
   border-radius: 8px;
-  color: #fff7e8;
-  font-size: 14px;
-  font-weight: 800;
-  min-width: 96px;
-  padding: 9px 12px;
-  text-align: center;
+  color: var(--night);
+  display: inline-flex;
+  font-weight: 900;
+  gap: 9px;
+  min-height: 48px;
+  margin-top: 28px;
+  padding: 0 18px;
+}
+
+.donation-button:hover,
+.donation-button:focus-visible {
+  background: #fff0cf;
+  outline: none;
+}
+
+.donation-button svg {
+  fill: currentColor;
+  height: 18px;
+  width: 18px;
 }
 
 .request-panel {
@@ -381,19 +402,9 @@ tbody tr:last-child td {
   color: #7a4c00;
 }
 
-.status-ready {
-  background: #d9f4ee;
-  color: #075f59;
-}
-
-.status-done {
+.status-complete {
   background: #eadff8;
   color: #523084;
-}
-
-.status-blocked {
-  background: #f9dddd;
-  color: #8b1d24;
 }
 
 .empty-state {
@@ -465,12 +476,12 @@ tbody tr:last-child td {
     position: static;
   }
 
-  .nav-links {
+  .social-links {
     overflow-x: auto;
     width: 100%;
   }
 
-  .nav-links a {
+  .social-links a {
     flex: 0 0 auto;
   }
 

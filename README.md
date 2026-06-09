@@ -29,6 +29,8 @@ artist_song,status,updated,notes
 Tom Cardy - Business Man,Making,2026-06-09,Need instrumental pass.
 ```
 
+Use one of three statuses: `Received`, `Making`, or `Complete`.
+
 You can also point the page at a published Google Sheet CSV by changing this line in `app.js`:
 
 ```js
@@ -63,7 +65,7 @@ For the apex domain, create `A` records pointing to GitHub Pages:
 For `www`, create a `CNAME` record pointing to your GitHub Pages hostname:
 
 ```text
-YOUR-GITHUB-USERNAME.github.io
+OpalApocalypse.github.io
 ```
 
 After DNS resolves, enable Enforce HTTPS in the GitHub Pages settings.

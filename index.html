@@ -16,14 +16,27 @@
         <span>APOCALYPSE</span>
         <small>with the Hips</small>
       </a>
-      <nav class="nav-links" aria-label="Page sections">
-        <a href="#request">Request</a>
-        <a href="#queue">Queue</a>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeHjW-EkvRBlwIgyVzYxEW7tINb3WsLUmKrLgr7dgQcnMx5ow/viewform"
-          rel="noopener"
-          target="_blank"
-        >Original Form</a>
+      <nav class="social-links" aria-label="Social links">
+        <a href="https://www.facebook.com/ApocalypseWithTheHips" rel="noopener" target="_blank" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.3 8.4h2.1V5.1c-.4-.1-1.6-.2-3-.2-3 0-5 1.8-5 5.1v2.8H5.2v3.7h3.2V24h3.8v-7.5h3.1l.5-3.7h-3.6v-2.4c0-1.1.3-2 2.1-2z"></path>
+          </svg>
+        </a>
+        <a href="https://x.com/OpalApocalypse" rel="noopener" target="_blank" aria-label="X.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.2 10.2 22.7 0h-2l-7.4 8.8L7.4 0H.6l8.9 13.1L.6 24h2l7.8-9.4 6.3 9.4h6.8l-9.3-13.8zm-2.8 3.3-.9-1.3L3.3 1.5h3.1l5.8 8.6.9 1.3 7.6 11.2h-3.1l-6.2-9.1z"></path>
+          </svg>
+        </a>
+        <a href="https://bsky.app/profile/opalapocalypse.bsky.social" rel="noopener" target="_blank" aria-label="Bluesky">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12.6c-1.3-2.4-4.7-6.9-7.8-9.1C2.1 2 .9 2.3.4 2.5-.2 2.8 0 3.8 0 4.4c0 .7.4 5.2.7 6.1.9 3 4 4 6.8 3.7-4.9.8-6.1 4-3.4 6.8 5.1 5.3 7.3-1.3 7.9-4.4.6 3.1 2.8 9.7 7.9 4.4 2.7-2.8 1.5-6-3.4-6.8 2.8.3 5.9-.7 6.8-3.7.3-.9.7-5.4.7-6.1 0-.6.2-1.6-.4-1.9-.5-.2-1.7-.5-3.8 1-3.1 2.2-6.5 6.7-7.8 9.1z"></path>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@ApocalypseWithTheHips" rel="noopener" target="_blank" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"></path>
+          </svg>
+        </a>
       </nav>
     </header>
 
@@ -32,17 +45,24 @@
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow">Karaoke Track Forge</p>
             <h1 id="site-title">APOCALYPSE with the Hips</h1>
             <p class="lede">
-              Want to sing a song at karaoke, but the track literally does not exist?
-              Request it here and I&rsquo;ll make it, eventually.
+              Birds aren&rsquo;t real. We all know that. Neither are some karaoke tracks.
+              Submit a request and I&rsquo;ll make the track for free. Donations appreciated
+              though of course, I&rsquo;m just a kind nerd who wants to make your day a
+              little better, maybe.
             </p>
-            <div class="mini-stats" aria-label="Request flow">
-              <span>Request</span>
-              <span>Build</span>
-              <span>Sing</span>
-            </div>
+            <p class="lede lede-secondary">
+              Tracks are created using Doblon&rsquo;s Karaoke CD+G Creator. Voice removal
+              done by myself using Reaper. Exported to CD+G format in crispy quality
+              with FFMPEG.
+            </p>
+            <a class="donation-button" href="https://paypal.me/OpalApocalypse" rel="noopener" target="_blank">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21.2 10.6 20C5.4 15.4 2 12.4 2 8.6 2 5.5 4.4 3.1 7.5 3.1c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.8-8.6 11.4L12 21.2z"></path>
+              </svg>
+              Donate
+            </a>
           </div>
 
           <form
@@ -100,8 +120,7 @@
               <option value="all">All statuses</option>
               <option value="received">Received</option>
               <option value="making">Making</option>
-              <option value="ready">Ready</option>
-              <option value="done">Done</option>
+              <option value="complete">Complete</option>
             </select>
             <button class="secondary-button" id="refresh-queue" type="button">Refresh</button>
           </div>
