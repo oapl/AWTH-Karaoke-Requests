@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Submit karaoke track requests and check the Apocalypse with the Hips request queue."
+    >
+    <title>Apocalypse with the Hips | Karaoke Track Requests</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar" aria-label="Site header">
+      <a class="brand" href="#request" aria-label="Apocalypse with the Hips home">
+        <span>APOCALYPSE</span>
+        <small>with the Hips</small>
+      </a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#request">Request</a>
+        <a href="#queue">Queue</a>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeHjW-EkvRBlwIgyVzYxEW7tINb3WsLUmKrLgr7dgQcnMx5ow/viewform"
+          rel="noopener"
+          target="_blank"
+        >Original Form</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="request" aria-labelledby="site-title">
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Karaoke Track Forge</p>
+            <h1 id="site-title">APOCALYPSE with the Hips</h1>
+            <p class="lede">
+              Want to sing a song at karaoke, but the track literally does not exist?
+              Request it here and I&rsquo;ll make it, eventually.
+            </p>
+            <div class="mini-stats" aria-label="Request flow">
+              <span>Request</span>
+              <span>Build</span>
+              <span>Sing</span>
+            </div>
+          </div>
+
+          <form
+            class="request-panel"
+            id="request-form"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSeHjW-EkvRBlwIgyVzYxEW7tINb3WsLUmKrLgr7dgQcnMx5ow/formResponse"
+            method="post"
+            target="google-form-target"
+          >
+            <h2>Request a Track</h2>
+            <label for="artist-song">Artist / Song</label>
+            <input
+              id="artist-song"
+              name="entry.1419360541"
+              type="text"
+              autocomplete="off"
+              placeholder="Tom Cardy - Business Man"
+              required
+            >
+
+            <label for="contact">Contact</label>
+            <input
+              id="contact"
+              name="entry.1825989671"
+              type="text"
+              autocomplete="email"
+              placeholder="@handle or email"
+              required
+            >
+
+            <button class="primary-button" type="submit">Send Request</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <iframe
+            class="hidden-frame"
+            name="google-form-target"
+            title="Google Form submission target"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="queue-section" id="queue" aria-labelledby="queue-title">
+        <div class="queue-header">
+          <div>
+            <p class="eyebrow dark">Queue</p>
+            <h2 id="queue-title">Track Queue</h2>
+          </div>
+          <div class="queue-tools" aria-label="Queue controls">
+            <label class="search-box" for="queue-search">
+              <span class="visually-hidden">Search queue</span>
+              <input id="queue-search" type="search" placeholder="Search songs">
+            </label>
+            <label class="visually-hidden" for="status-filter">Filter by status</label>
+            <select id="status-filter">
+              <option value="all">All statuses</option>
+              <option value="received">Received</option>
+              <option value="making">Making</option>
+              <option value="ready">Ready</option>
+              <option value="done">Done</option>
+            </select>
+            <button class="secondary-button" id="refresh-queue" type="button">Refresh</button>
+          </div>
+        </div>
+
+        <div class="queue-summary" id="queue-summary" aria-label="Queue summary">
+          <span>Loading queue...</span>
+        </div>
+
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Song</th>
+                <th scope="col">Status</th>
+                <th scope="col">Updated</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody id="queue-body">
+              <tr>
+                <td colspan="4">Loading queue...</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="empty-state" id="empty-state" hidden>No matching requests.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>ApocalypseWithTheHips.com</span>
+      <span>Karaoke tracks, eventually.</span>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
