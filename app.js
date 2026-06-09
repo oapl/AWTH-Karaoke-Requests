@@ -2,28 +2,76 @@ const QUEUE_CSV_URL = window.APOTH_QUEUE_CSV_URL || "./data/queue.csv";
 
 const sampleQueue = [
   {
-    song: "Tom Cardy - Business Man",
-    status: "Making",
+    song: "Sarah Vaughan - I'm Gonna Live Until I Die",
+    status: "Received",
     updated: "2026-06-09",
-    notes: "Demo entry. Replace this CSV row with the real queue."
+    notes: "Max"
+  },
+    {
+    song: "(SLACKCiRCUS) HEYYEYAAEYAAAEYAEYAA",
+    status: "Received",
+    updated: "2026-06-08",
+    notes: "For: The Walkman"
   },
   {
-    song: "Chappell Roan - Pink Pony Club",
+    song: "Watsky - Welcome to the Family",
+    status: "Received",
+    updated: "2026-06-08",
+    notes: "For: Justin"
+  },
+  {
+    song: "Jack White - SHedding my Velvet",
+    status: "Received",
+    updated: "2026-06-08",
+    notes: "For: Jenesis"
+  },
+    {
+    song: "Lake Street Drive - Makes",
+    status: "Received",
+    updated: "2026-06-08",
+    notes: "For: Curls"
+  },
+    {
+    song: "Lake Street Drive - Good Kisser",
+    status: "Received",
+    updated: "2026-06-08",
+    notes: "For: Curls"
+  },
+      {
+    song: "Jazzy Jeff & The Fresh Prince - From Da South",
+    status: "Received",
+    updated: "2026-06-08",
+    notes: "For: The Walkman"
+  },
+      {
+    song: "Sir Mix-A-Lot - Sleepin' Wit My Fonk",
+    status: "Received",
+    updated: "2026-06-08",
+    notes: "For: The Walkman"
+  },
+      {
+    song: "Mystery Skulls - Freakin' Out",
+    status: "Received",
+    updated: "2026-06-08",
+    notes: "For: APOCALYPSE"
+  },  
+  {
+    song: "Donnie Elbert - Have I Sinned",
     status: "Complete",
     updated: "2026-06-08",
-    notes: "Demo entry."
+    notes: "For: Justin"
   },
   {
-    song: "Weird Al Yankovic - Hardware Store",
-    status: "Received",
-    updated: "2026-06-07",
-    notes: "Demo entry."
-  },
-  {
-    song: "Mitski - My Love Mine All Mine",
+    song: "Ken Ashcorp - Hunter",
     status: "Complete",
-    updated: "2026-06-05",
-    notes: "Demo entry."
+    updated: "2026-06-06",
+    notes: "For: ME, ya' nerds."
+  },
+  {
+    song: "Escape from the Zoon - Learnin' Curve",
+    status: "Complete",
+    updated: "2026-02-14",
+    notes: "For: Trash Lord."
   }
 ];
 
