@@ -126,10 +126,10 @@ select {
 .hero-inner {
   align-items: center;
   display: grid;
-  gap: 42px;
-  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 36px;
+  grid-template-columns: minmax(0, 1fr) 400px;
   margin: 0 auto;
-  max-width: 1180px;
+  max-width: 1240px;
   min-height: 692px;
   padding: 48px 28px 76px;
   position: relative;
@@ -162,6 +162,17 @@ h2 {
 h1 {
   font-size: 58px;
   max-width: 620px;
+}
+
+@media (min-width: 1100px) {
+  .hero-copy {
+    max-width: none;
+  }
+
+  h1 {
+    max-width: none;
+    white-space: nowrap;
+  }
 }
 
 h2 {
