@@ -360,7 +360,7 @@ h2 {
 
 table {
   border-collapse: collapse;
-  min-width: 760px;
+  min-width: 880px;
   width: 100%;
 }
 
@@ -391,6 +391,15 @@ tbody tr:last-child td {
 .song-title {
   display: block;
   font-weight: 900;
+}
+
+.request-id {
+  color: #5f5347;
+  display: inline-block;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  font-weight: 800;
+  min-width: 84px;
 }
 
 .status-chip {

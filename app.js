@@ -2,72 +2,84 @@ const QUEUE_CSV_URL = window.APOTH_QUEUE_CSV_URL || "./data/queue.csv";
 
 const sampleQueue = [
   {
+    id: "AWTH-0000",
     song: "Sarah Vaughan - I'm Gonna Live Until I Die",
     status: "Received",
     updated: "2026-06-09",
     notes: "Max"
   },
-    {
+  {
+    id: "AWTH-0000",
     song: "(SLACKCiRCUS) HEYYEYAAEYAAAEYAEYAA",
     status: "Received",
     updated: "2026-06-08",
     notes: "For: The Walkman"
   },
   {
+    id: "AWTH-0000",
     song: "Watsky - Welcome to the Family",
     status: "Received",
     updated: "2026-06-08",
     notes: "For: Justin"
   },
   {
+    id: "AWTH-0000",
     song: "Jack White - SHedding my Velvet",
     status: "Received",
     updated: "2026-06-08",
     notes: "For: Jenesis"
   },
-    {
+  {
+    id: "AWTH-0000",
     song: "Lake Street Drive - Makes",
     status: "Received",
     updated: "2026-06-08",
     notes: "For: Curls"
   },
-    {
+  {
+    id: "AWTH-0000",
     song: "Lake Street Drive - Good Kisser",
     status: "Received",
     updated: "2026-06-08",
     notes: "For: Curls"
   },
-      {
+  {
+    id: "AWTH-0000",
     song: "Jazzy Jeff & The Fresh Prince - From Da South",
     status: "Received",
     updated: "2026-06-08",
     notes: "For: The Walkman"
   },
-      {
+  {
+    id: "AWTH-0000",
     song: "Sir Mix-A-Lot - Sleepin' Wit My Fonk",
     status: "Received",
     updated: "2026-06-08",
     notes: "For: The Walkman"
   },
-      {
+  {
+    id: "AWTH-0000",
     song: "Mystery Skulls - Freakin' Out",
     status: "Received",
     updated: "2026-06-08",
     notes: "For: APOCALYPSE"
-  },  
+  },
   {
+    id: "AWTH-0000",
     song: "Donnie Elbert - Have I Sinned",
     status: "Complete",
     updated: "2026-06-08",
     notes: "For: Justin"
   },
   {
+    id: "AWTH-0000",
     song: "Ken Ashcorp - Hunter",
     status: "Complete",
     updated: "2026-06-06",
     notes: "For: ME, ya' nerds."
   },
   {
+    id: "AWTH-0000",
     song: "Escape from the Zoon - Learnin' Curve",
     status: "Complete",
     updated: "2026-02-14",
@@ -125,7 +137,7 @@ refreshButton.addEventListener("click", () => {
 loadQueue();
 
 async function loadQueue() {
-  queueBody.innerHTML = '<tr><td colspan="4">Loading queue...</td></tr>';
+  queueBody.innerHTML = '<tr><td colspan="5">Loading queue...</td></tr>';
   emptyState.hidden = true;
 
   try {
@@ -147,19 +159,25 @@ async function loadQueue() {
 }
 
 function renderQueue() {
-  const filtered = state.queue.filter((item) => {
+  const filtered = sortQueueItems(state.queue.filter((item) => {
     const statusKeyValue = statusKey(item.status);
     const statusMatches = state.filter === "all" || statusKeyValue === state.filter;
-    const haystack = `${item.song} ${item.status} ${item.updated} ${item.notes}`.toLowerCase();
+    const haystack = `${item.id} ${item.song} ${item.status} ${item.updated} ${item.notes}`.toLowerCase();
     const searchMatches = !state.search || haystack.includes(state.search);
     return statusMatches && searchMatches;
-  });
+  }));
 
   queueBody.replaceChildren();
 
   const fragment = document.createDocumentFragment();
   for (const item of filtered) {
     const row = document.createElement("tr");
+
+    const idCell = document.createElement("td");
+    const idValue = document.createElement("span");
+    idValue.className = "request-id";
+    idValue.textContent = item.id || "AWTH-0000";
+    idCell.append(idValue);
 
     const songCell = document.createElement("td");
     const songTitle = document.createElement("span");
@@ -179,7 +197,7 @@ function renderQueue() {
     const notesCell = document.createElement("td");
     notesCell.textContent = item.notes || "";
 
-    row.append(songCell, statusCell, updatedCell, notesCell);
+    row.append(idCell, songCell, statusCell, updatedCell, notesCell);
     fragment.append(row);
   }
 
@@ -210,6 +228,7 @@ function summaryPill(text) {
 
 function mapQueueRow(row) {
   return {
+    id: pick(row, ["id", "request_id", "request id", "track id"]) || "AWTH-0000",
     song: pick(row, [
       "artist_song",
       "artist/song",
@@ -222,6 +241,21 @@ function mapQueueRow(row) {
     updated: pick(row, ["updated", "last updated", "date", "timestamp"]),
     notes: pick(row, ["notes", "note", "details"])
   };
+}
+
+function sortQueueItems(items) {
+  return [...items].sort((first, second) => {
+    return statusPriority(first.status) - statusPriority(second.status);
+  });
+}
+
+function statusPriority(status) {
+  const priority = {
+    making: 0,
+    received: 1,
+    complete: 2
+  };
+  return priority[statusKey(status)] ?? 99;
 }
 
 function pick(row, keys) {

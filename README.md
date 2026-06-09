@@ -25,11 +25,12 @@ If the Google Form changes, update those field names in `index.html`.
 The queue table reads `data/queue.csv` by default. Keep the public queue columns simple:
 
 ```csv
-artist_song,status,updated,notes
-Tom Cardy - Business Man,Making,2026-06-09,Need instrumental pass.
+id,artist_song,status,updated,notes
+AWTH-0000,Tom Cardy - Business Man,Making,2026-06-09,Need instrumental pass.
 ```
 
 Use one of three statuses: `Received`, `Making`, or `Complete`.
+The queue auto-sorts by status priority: `Making`, then `Received`, then `Complete`.
 
 You can also point the page at a published Google Sheet CSV by changing this line in `app.js`:
 
